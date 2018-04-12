@@ -1,4 +1,6 @@
 
+!! Template with git controled
+
 !! Defining FEX Hardware and FEX ID
 slot <fex_nr>
   provision model [ N2K-C2348TQ | N2K-C2348UPQ ]
