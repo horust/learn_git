@@ -1,0 +1,32 @@
+
+!! Defining FEX Hardware and FEX ID
+slot <fex_nr>
+  provision model [ N2K-C2348TQ | N2K-C2348UPQ ]
+
+fex <fex_nr>
+  description "FEX<fex_nr>_{{ FEX_NAME_fex_nr }}"
+  type [ N2348TQ | N2348UPQ ]
+
+
+!! Physical Interface 1
+interface ethernet <fex_port_1>
+  description *** to PO<fex_nr>_MEMBER-1_TO_FEX<fex_nr>_{{ FEX_NAME_fex_nr }}_Y/1 **
+  switchport mode fex-fabric
+  fex associate <fex_nr>
+  channel-group <fex_nr>
+  no shutdown
+
+!! Physical Interface 2
+interface ethernet <fex_port_2>
+  description *** to PO<fex_nr>_MEMBER-2_TO_FEX<fex_nr>_{{ FEX_NAME_fex_nr }}_Y/2 ***
+  switchport mode fex-fabric
+  fex associate <fex_nr>
+  channel-group <fex_nr>
+  no shutdown
+
+!! Port Channel to FEX
+interface port-channel<fex_nr>
+  description *** to FEX<fex_nr>_{{ FEX_NAME_fex_nr }}_PO<fex_nr> ***
+  switchport mode fex-fabric
+  fex associate <fex_nr>
+  no shutdown
