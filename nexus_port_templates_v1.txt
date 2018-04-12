@@ -2,7 +2,7 @@
 !! Access interface - Single Homed Server with single VLAN
 
 interface Eth{{ FEX_ID }}/<slot>/<port>
-  description *** {{ Server_Port_Description }} ***
+  description *** <Server_Port_Description> ***
   no cdp enable
   switchport access vlan {{ Server_VLAN }}
   spanning-tree port type edge
@@ -18,7 +18,7 @@ interface Eth{{ FEX_ID }}/<slot>/<port>
 !! Trunk interface - Single Homed Server with multiple VLANs
 
 interface Eth{{ FEX_ID }}/<slot>/<port>
-  description *** {{ Server_Port_Description }} ***
+  description *** <Server_Port_Description> ***
   no cdp enable
 
   switchport mode trunk
@@ -39,7 +39,7 @@ interface Eth{{ FEX_ID }}/<slot>/<port>
 !! Trunk interface - Single Homed Server with multiple VLANs and orphan-port
 
 interface Eth{{ FEX_ID }}/<slot>/<port>
-  description *** {{ Server_Port_Description }} ***
+  description *** <Server_Port_Description> ***
   no cdp enable
 
   switchport mode trunk
