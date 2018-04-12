@@ -1,0 +1,64 @@
+
+!! Access interface - Single Homed Server with single VLAN
+
+interface Eth{{ FEX_ID }}/<slot>/<port>
+  description *** {{ Server_Port_Description }} ***
+  no cdp enable
+  switchport access vlan {{ Server_VLAN }}
+  spanning-tree port type edge
+  speed [100 | 1000 | 10000]
+  duplex full 
+  no snmp trap link-status
+  storm-control broadcast level 5.00
+  storm-control multicast level 5.00
+  storm-control unicast level 5.00
+  no shutdown
+
+
+!! Trunk interface - Single Homed Server with multiple VLANs
+
+interface Eth{{ FEX_ID }}/<slot>/<port>
+  description *** {{ Server_Port_Description }} ***
+  no cdp enable
+
+  switchport mode trunk
+  switchport trunk native vlan 998
+  switchport trunk allowed vlan {{ Server_VLANs }}
+
+  spanning-tree port type edge trunk
+  speed [100 | 1000 | 10000]
+  duplex full 
+  no snmp trap link-status
+
+  storm-control broadcast level 5.00
+  storm-control multicast level 5.00
+  storm-control unicast level 5.00
+  no shutdown
+
+
+!! Trunk interface - Single Homed Server with multiple VLANs and orphan-port
+
+interface Eth{{ FEX_ID }}/<slot>/<port>
+  description *** {{ Server_Port_Description }} ***
+  no cdp enable
+
+  switchport mode trunk
+  switchport trunk native vlan 998
+  switchport trunk allowed vlan {{ Server_VLANs }}
+
+  spanning-tree port type edge trunk
+  speed [100 | 1000 | 10000]
+  duplex full 
+  no snmp trap link-status
+
+  storm-control broadcast level 5.00
+  storm-control multicast level 5.00
+  storm-control unicast level 5.00
+  vpc orphan-port suspend
+  no shutdown
+
+
+!! 
+
+
+
