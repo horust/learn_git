@@ -1,0 +1,7 @@
+
+
+Just a simple lab with VIRL, VMware Workstation and a Ubuntu virtual machine.
+
+One network in VMware is shared between VIRL and Ubuntu, so I have direct access from the linux machine to the router and switches with ssh.
+
+
