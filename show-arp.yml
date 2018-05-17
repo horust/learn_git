@@ -13,5 +13,5 @@
     
   - debug: msg={{ arp_printout.stdout[0] }}
   - local_action: >
-    copy content={{arp_printout.stdout[0]}} 
-         dest={{output}}/{{inventory_hostname}}.arp.txt
+        copy content={{arp_printout.stdout[0]}} 
+           dest={{output}}/{{inventory_hostname}}.arp.txt
