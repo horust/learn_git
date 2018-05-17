@@ -1,0 +1,10 @@
+---
+- hosts: ios
+  name: Execute SHOW ARP on all network devices and save results
+  tasks:
+  - ios_command:
+      commands:
+      - "show arp"
+    register: arp_printout
+    
+  - debug: msg={{ arp_printout.stdout[0] }}

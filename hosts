@@ -1,0 +1,7 @@
+[ios]
+iosv-1.virl.info ansible_host=172.16.1.59 ansible_os=ios
+iosv-2.virl.info ansible_host=172.16.1.60 ansible_os=ios
+
+[all:vars]
+ansible_user=cisco
+ansible_ssh_pass=cisco
