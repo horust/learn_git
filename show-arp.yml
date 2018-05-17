@@ -1,10 +1,17 @@
 ---
 - hosts: ios
   name: Execute SHOW ARP on all network devices and save results
+  vars: 
+    output: printouts  
   tasks:
+  - local_action: file path={{output}} state=directory
+    run_once: true
   - ios_command:
       commands:
       - "show arp"
     register: arp_printout
     
   - debug: msg={{ arp_printout.stdout[0] }}
+  - local_action: >
+    copy content={{show.stdout}} 
+         dest={{output}}/{{inventory_hostname}}.arp.txt
